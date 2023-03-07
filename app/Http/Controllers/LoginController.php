@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     //
-
     public function validarUsuario(Request $request){
         //Obtenemos el usuario y contrasena
         $usuario = $request->input('usuario');
@@ -31,7 +30,7 @@ class LoginController extends Controller
             break;
             case "gerente":
                 if($usuario==$password){
-                    return redirect(route('gerente'));
+                    return redirect(route('gerenteUsuarios'));
                 }
             break;
             //default: return redirect(route('login'));
@@ -39,5 +38,4 @@ class LoginController extends Controller
         //Retornamos a la vista anterior que es Login
         return redirect()->back();
     }
-
 }

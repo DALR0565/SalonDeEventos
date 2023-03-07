@@ -22,19 +22,31 @@ Route::get('/', function () {
 Route::post('validarusuario',[LoginController::class,'validarUsuario'])->name('validarusuario');
 
 
+Route::get('gerenteUsuarios',function(){
+    return view('Empleado.gerenteUsuarios');
+})->name('gerenteUsuarios');
+
+Route::get('gerenteServicios',function(){
+    return view('Empleado.gerenteServicios');
+})->name('gerenteServicios');
+
+Route::get('gerentePaquetes',function(){
+    return view('Empleado.gerentePaquetes');
+})->name('gerentePaquetes');
+
 //Rutas de los usuarios
-Route::get('gerente',function(){
-    return view('Empleado.gerente');
-})->name('gerente');
+/*Route::get('gerente',function(){
+    return view('plantillas.gerente');
+})->name('gerente');*/
 
 Route::get('empleado',function(){
-    return view('Empleado.empleado');
+    return view('plantillas.empleado');
 })->name('empleado');
 
 Route::get('anonimo',function(){
-    return view('Cliente.anonimo');
+    return view('plantillas.anonimo');
 })->name('anonimo');
 
 Route::get('cliente',function(){
-    return view('Cliente.cliente');
+    return view('plantillas.cliente');
 })->name('cliente');
