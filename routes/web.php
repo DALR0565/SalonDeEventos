@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PaqueteController;
+use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,15 +19,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('Login.login');
-});
+})->name('login');
 
 //Ruta de validacion de Usuario
 Route::post('validarusuario',[LoginController::class,'validarUsuario'])->name('validarusuario');
 
 
-Route::get('gerenteUsuarios',function(){
+/*Route::get('gerenteUsuarios',function(){
     return view('Empleado.gerenteUsuarios');
-})->name('gerenteUsuarios');
+})->name('gerenteUsuarios');*/
 
 Route::get('gerenteServicios',function(){
     return view('Empleado.gerenteServicios');
@@ -33,6 +36,33 @@ Route::get('gerenteServicios',function(){
 Route::get('gerentePaquetes',function(){
     return view('Empleado.gerentePaquetes');
 })->name('gerentePaquetes');
+
+//Route::get('crearpaquete',[PaqueteController::class, 'create'])->name('paquetes.create');
+Route::get('usuarios',[UsuarioController::class, 'index'])->name('Empleado.gerenteUsuarios');
+Route::get('paquetes',[PaqueteController::class, 'index'])->name('Empleado.gerentePaquetes');
+Route::get('servicios',[ServicioController::class, 'index'])->name('Empleado.gerenteServicios');
+
+
+//RUTAS DE GERENTE - USUARIOS
+Route::get('actualizar/{cual?}',[UsuarioController::class, 'edit'])->name('usuarios.edit');
+Route::post('guardar',[UsuarioController::class, 'store'])->name('usuarios.store');
+Route::get('crearusuario',[UsuarioController::class, 'create'])->name('usuarios.create');
+Route::put('actualizar/{cual?}',[UsuarioController::class, 'update'])->name('usuarios.update');
+Route::delete('borrar/{cual?}',[UsuarioController::class, 'destroy'])->name('usuarios.destroy');
+
+//RUTAS DE GERENTE - PAQUETES
+Route::get('actualizarpaquete/{cual?}',[PaqueteController::class, 'edit'])->name('paquetes.edit');
+Route::post('guardarpaquete',[PaqueteController::class, 'store'])->name('paquetes.store');
+Route::get('crearpaquete',[PaqueteController::class, 'create'])->name('paquetes.create');
+Route::put('actualizarpaquete/{cual?}',[PaqueteController::class, 'update'])->name('paquetes.update');
+Route::delete('borrarpaquete/{cual?}',[PaqueteController::class, 'destroy'])->name('paquetes.destroy');
+
+//RUTAS DE GERENTE - SERVICIOS
+Route::get('actualizarservicio/{cual?}',[ServicioController::class, 'edit'])->name('servicios.edit');
+Route::post('guardarservicio',[ServicioController::class, 'store'])->name('servicios.store');
+Route::get('crearservicio',[ServicioController::class, 'create'])->name('servicios.create');
+Route::put('actualizarservicio/{cual?}',[ServicioController::class, 'update'])->name('servicios.update');
+Route::delete('borrarservicio/{cual?}',[ServicioController::class, 'destroy'])->name('servicios.destroy');
 
 //Rutas de los usuarios
 /*Route::get('gerente',function(){

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Servicio;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
-class ServicioController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        $servicios = Servicio::all();
-        return view('Empleado.gerenteServicios',compact('servicios'));
-        //
+        $usuarios = Usuario::all();
+        return view('Empleado.gerenteUsuarios',compact('usuarios'));
     }
 
     /**
@@ -26,8 +25,8 @@ class ServicioController extends Controller
      */
     public function create()
     {
-        return view('servicios.create');
         //
+        return view('usuarios.create');
     }
 
     /**
@@ -38,12 +37,13 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-        $servicio = new Servicio();
-        $servicio->id = $request->input('id');
-        $servicio->servicio = $request->input('servicio');
-        $servicio->precio = $request->input('precio');
-        $servicio->save();
-        return redirect(route('Empleado.gerenteServicios'));
+        $usuario = new Usuario();
+        $usuario->id = $request->input('id');
+        $usuario->nombre = $request->input('nombre');
+        $usuario->edad = $request->input('edad');
+        $usuario->sexo = $request->input('sexo');
+        $usuario->save();
+        return redirect(route('Empleado.gerenteUsuarios'));
         //
     }
 
@@ -54,20 +54,20 @@ class ServicioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {  
         //
     }
 
-    /**
+     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(string $id)
     {
-        $servicio_encontrado = Servicio::find($id);
-        return view('servicios.edit', compact('servicio_encontrado'));
+        $usuario_encontrado = Usuario::find($id);
+        return view('usuarios.edit', compact('usuario_encontrado'));
         //
     }
 
@@ -80,12 +80,13 @@ class ServicioController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $servicio_encontrado = Servicio::find($id);
-        $servicio_encontrado->id = $request->input('id');
-        $servicio_encontrado->servicio = $request->input('servicio');
-        $servicio_encontrado->precio = $request->input('precio');
-        $servicio_encontrado->save();
-        return redirect(route('Empleado.gerenteServicios'));
+        $usuario_encontrado = Usuario::find($id);
+        $usuario_encontrado->id = $request->input('id');
+        $usuario_encontrado->nombre = $request->input('nombre');
+        $usuario_encontrado->edad = $request->input('edad');
+        $usuario_encontrado->sexo = $request->input('sexo');
+        $usuario_encontrado->save();
+        return redirect(route('Empleado.gerenteUsuarios'));
         //
     }
 
@@ -97,9 +98,9 @@ class ServicioController extends Controller
      */
     public function destroy($id)
     {
-        $servicio_encontrado = Servicio::find($id);
-        $servicio_encontrado->delete();
-        return redirect(route('Empleado.gerenteServicios'));
+        $usuario_encontrado = Usuario::find($id);
+        $usuario_encontrado->delete();
+        return redirect(route('Empleado.gerenteUsuarios'));
         //
     }
 }

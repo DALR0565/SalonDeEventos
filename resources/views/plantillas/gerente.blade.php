@@ -18,10 +18,10 @@
             </div>
             <div class="menu">
                 <h3 class="d-block text-light p-3">Tablero</h3>
-                <a href="{{route('gerenteUsuarios')}}" class="d-block text-light p-3"><i class="icon ion-md-contacts mr-2 lead"></i>Usuarios</a>
-                <a href="{{route('gerentePaquetes')}}" class="d-block text-light p-3"><i class="icon ion-md-calendar mr-2 lead"></i>Paquetes</a>
-                <a href="{{route('gerenteServicios')}}" class="d-block text-light p-3"><i class="icon ion-md-clipboard mr-2 lead"></i>Servicios</a>
-                <a href="#" class="d-block text-light p-3"><i class="icon ion-md-exit mr-2 lead"></i>Cerrar sesion</a>
+                <a href="{{route('Empleado.gerenteUsuarios')}}" class="d-block text-light p-3"><i class="icon ion-md-contacts mr-2 lead"></i>Usuarios</a>
+                <a href="{{route('Empleado.gerentePaquetes')}}" class="d-block text-light p-3"><i class="icon ion-md-calendar mr-2 lead"></i>Paquetes</a>
+                <a href="{{route('Empleado.gerenteServicios')}}" class="d-block text-light p-3"><i class="icon ion-md-clipboard mr-2 lead"></i>Servicios</a>
+                <a href="{{route('login')}}" class="d-block text-light p-3"><i class="icon ion-md-exit mr-2 lead"></i>Cerrar sesion</a>
             </div>
         </div>
         @yield('contenido')
