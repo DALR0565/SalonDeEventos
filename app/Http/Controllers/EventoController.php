@@ -96,7 +96,11 @@ class EventoController extends Controller
         $evento_encontrado->precio = $request->input('precio');
         $evento_encontrado->descripcion = $request->input('descripcion');
         //
-        $img = $request->input('imagen')->file('file')->store('public/imagenes');
+        $request->validate([
+            'imagen' => 'required|image|max:2048'
+        ]);
+        //
+        $img = $request->file('imagen')->store('public/imagenes');
         $evento_encontrado->imagen = Storage::url($img);
 
         $evento_encontrado->save();
