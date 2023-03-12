@@ -5,10 +5,10 @@
     <label for='id'>ID</label>
     <input type='text' name='id' id='id'>
     <br>
-    <label for='nombre'>Paquete</label>
+    <label for='paquete'>Paquete</label>
     <input type='text' name='paquete' id='paquete'>
     <br>
-    <label for='edad'>Precio</label>
+    <label for='precio'>Precio</label>
     <input type='text' name='precio' id='precio'>
     <br>
     <input type="submit" value="GUARDAR">

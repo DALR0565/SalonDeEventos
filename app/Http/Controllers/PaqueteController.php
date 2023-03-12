@@ -80,7 +80,7 @@ class PaqueteController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $paquete_encontrado = Usuario::find($id);
+        $paquete_encontrado = Paquete::find($id);
         $paquete_encontrado->id = $request->input('id');
         $paquete_encontrado->paquete = $request->input('paquete');
         $paquete_encontrado->precio = $request->input('precio');

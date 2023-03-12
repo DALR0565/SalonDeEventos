@@ -37,6 +37,7 @@ class Paquete
     }
     public function delete(){
         $arreglo = session('arregloPaquete', []);
+        unset($arreglo[$this->id]);
         unset($arreglo[$this->id][0]);
         unset($arreglo[$this->id][1]);
         unset($arreglo[$this->id][2]);

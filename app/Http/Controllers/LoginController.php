@@ -15,7 +15,7 @@ class LoginController extends Controller
         switch($usuario){
             case "cliente":
                 if($usuario==$password){
-                    return redirect(route('cliente'));
+                    return redirect(route('Cliente.clienteEventos'));
                 }
             break;
             case "anonimo":

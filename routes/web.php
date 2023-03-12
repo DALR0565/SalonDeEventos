@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaqueteController;
 use App\Http\Controllers\ServicioController;
@@ -42,6 +43,10 @@ Route::get('usuarios',[UsuarioController::class, 'index'])->name('Empleado.geren
 Route::get('paquetes',[PaqueteController::class, 'index'])->name('Empleado.gerentePaquetes');
 Route::get('servicios',[ServicioController::class, 'index'])->name('Empleado.gerenteServicios');
 
+///
+Route::get('eventos',[EventoController::class, 'index'])->name('Cliente.clienteEventos');
+
+
 
 //RUTAS DE GERENTE - USUARIOS
 Route::get('actualizar/{cual?}',[UsuarioController::class, 'edit'])->name('usuarios.edit');
@@ -63,6 +68,19 @@ Route::post('guardarservicio',[ServicioController::class, 'store'])->name('servi
 Route::get('crearservicio',[ServicioController::class, 'create'])->name('servicios.create');
 Route::put('actualizarservicio/{cual?}',[ServicioController::class, 'update'])->name('servicios.update');
 Route::delete('borrarservicio/{cual?}',[ServicioController::class, 'destroy'])->name('servicios.destroy');
+
+
+//RUTAS DE CLIENTE - EVENTOS
+Route::get('actualizarevento/{cual?}',[EventoController::class, 'edit'])->name('eventos.edit');
+Route::post('guardarevento',[EventoController::class, 'store'])->name('eventos.store');
+Route::get('crearevento',[EventoController::class, 'create'])->name('eventos.create');
+Route::put('actualizarevento/{cual?}',[EventoController::class, 'update'])->name('eventos.update');
+Route::delete('borrarevento/{cual?}',[EventoController::class, 'destroy'])->name('eventos.destroy');
+
+
+
+
+
 
 //Rutas de los usuarios
 /*Route::get('gerente',function(){
