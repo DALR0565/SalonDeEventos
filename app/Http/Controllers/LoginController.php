@@ -25,7 +25,7 @@ class LoginController extends Controller
              break;
             case "empleado":
                 if($usuario==$password){
-                    return redirect(route('empleado'));
+                    return redirect(route('Empleado.empleadoAbonos'));
                 }
             break;
             case "gerente":

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbonoController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaqueteController;
@@ -43,6 +44,8 @@ Route::get('usuarios',[UsuarioController::class, 'index'])->name('Empleado.geren
 Route::get('paquetes',[PaqueteController::class, 'index'])->name('Empleado.gerentePaquetes');
 Route::get('servicios',[ServicioController::class, 'index'])->name('Empleado.gerenteServicios');
 
+Route::get('abonos',[AbonoController::class, 'index'])->name('Empleado.empleadoAbonos');
+
 ///
 Route::get('eventos',[EventoController::class, 'index'])->name('Cliente.clienteEventos');
 
@@ -78,6 +81,12 @@ Route::put('actualizarevento/{cual?}',[EventoController::class, 'update'])->name
 Route::delete('borrarevento/{cual?}',[EventoController::class, 'destroy'])->name('eventos.destroy');
 
 
+//RUTAS DE EMPLEADO - ABONOS
+Route::get('actualizarabono/{cual?}',[AbonoController::class, 'edit'])->name('abonos.edit');
+Route::post('guardarabono',[AbonoController::class, 'store'])->name('abonos.store');
+Route::get('crearabono',[AbonoController::class, 'create'])->name('abonos.create');
+Route::put('actualizarabono/{cual?}',[AbonoController::class, 'update'])->name('abonos.update');
+Route::delete('borrarabono/{cual?}',[AbonoController::class, 'destroy'])->name('abonos.destroy');
 
 
 
